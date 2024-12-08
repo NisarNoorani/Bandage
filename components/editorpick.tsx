@@ -1,6 +1,6 @@
 import React from "react";
 
-const EditorPiclk = () => {
+const EditorPick = () => {
   return (
     <div className="bg-white py-10 px-5">
       <h2 className="text-center text-xl font-bold mb-2">EDITOR'S PICK</h2>
