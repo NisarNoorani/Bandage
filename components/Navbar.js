@@ -15,40 +15,40 @@ const Navbar = () => {
             <Link href="/" className=" md:hidden text-2xl font-bold text-gray-800 mr-10">Bandage</Link>
                 <div className="hidden text-lg md:flex items-center gap-6 ">
                     <Link href="/" className="text-2xl font-bold text-gray-800 mr-10">Bandage</Link>
-                    <Link href="/" className="text-gray-700 hover:text-blue-500 transition">
+                    <Link href="/" className="text-gray-700 hover:text-sky-500 transition">
                         Home
                     </Link>
-                    <Link href="/shop" className="text-gray-700 hover:text-blue-500 transition">
+                    <Link href="/shop" className="text-gray-700 hover:text-sky-500 transition">
                         Shop
                     </Link>
-                    <Link href="/about" className="text-gray-700 hover:text-blue-500 transition">
-                        About
+                    <Link href="/about" className="text-gray-700 hover:text-sky-500 transition">
+                        About Us
                     </Link>
-                    <Link href="/blog" className="text-gray-700 hover:text-blue-500 transition">
-                        Blog
+                    <Link href="/pricing" className="text-gray-700 hover:text-sky-500 transition">
+                        pricing
                     </Link>
-                    <Link href="/contact" className="text-gray-700 hover:text-blue-500 transition">
+                    <Link href="/contact" className="text-gray-700 hover:text-sky-500 transition">
                         Contact
                     </Link>
                 </div>
                 {/* Desktop Links */}
                     <div className='md:flex hidden '>
-                        <a href="/login" className="text-blue-400 font-bold font-lg mx-5">
+                        <a href="/login" className="text-sky-400 font-bold font-lg mx-5">
                             Login / Register
                         </a>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-blue-400 ml-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-sky-400 ml-3">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 18a8 8 0 100-16 8 8 0 000 16zm6.293-1.293l4.707 4.707-1.414 1.414-4.707-4.707a9.97 9.97 0 01-1.414 1.414z" />
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-blue-400 ml-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-sky-400 ml-4">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a4.5 4.5 0 010-6.364z" />
                         </svg>
-                            <span className='text-blue-400 '>1</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 ml-4 text-blue-400">
+                            <span className='text-sky-400 '>1</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 ml-4 text-sky-400">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h18l-2 9H5L3 3z" />
                             <circle cx="9" cy="19" r="2" stroke="currentColor" strokeWidth="2" />
                             <circle cx="17" cy="19" r="2" stroke="currentColor" strokeWidth="2" />
                         </svg>
-
+                        <span className='text-sky-400 '>1</span>
                     </div>
 
                 <button

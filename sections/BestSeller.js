@@ -16,8 +16,8 @@ const BestSeller = () => {
   return (
     <section className="max-w-screen-xl mx-auto py-8">
       {/* Section Heading */}
-      <h2 className="text-center text-gray-500 text-lg my-1 mt-10">Featured Products</h2>
-      <h2 className="text-center text-gray-800 text-xl font-bold uppercase mb-2">Bestseller Products</h2>
+      <h2 className="text-center tracking-wide text-gray-400 text-lg my-1 mt-10">Featured Products</h2>
+      <h2 className="text-center text-gray-800 tracking-wide text-xl font-bold uppercase mb-2">Bestseller Products</h2>
       <p className="text-center text-gray-500 text-sm mb-6">
         Problems trying to resolve the conflict between
       </p>
@@ -25,7 +25,10 @@ const BestSeller = () => {
       {/* Product Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {productImages.map((image, index) => (
-          <div key={index} className="bg-white shadow-md rounded p-4">
+          <div
+            key={index}
+            className="bg-white shadow-lg rounded border border-gray-300 p-4 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+          >
             {/* Product Image */}
             <img
               src={image}

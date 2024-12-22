@@ -9,14 +9,14 @@ const Footer = () => {
         <h2 className="text-2xl font-bold">Bandage</h2> {/* Increased size */}
         
         {/* Social Media Icons */}
-        <div className="flex space-x-6 text-blue-500 text-lg"> {/* Increased icon size */}
-          <a href="#" aria-label="Facebook" className="hover:text-blue-600">
+        <div className="flex space-x-6 text-sky-500 text-lg"> {/* Increased icon size */}
+          <a href="#" aria-label="Facebook" className="hover:text-sky-600">
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="#" aria-label="Instagram" className="hover:text-blue-600">
+          <a href="#" aria-label="Instagram" className="hover:text-sky-600">
             <i className="fab fa-instagram"></i>
           </a>
-          <a href="#" aria-label="Twitter" className="hover:text-blue-600">
+          <a href="#" aria-label="Twitter" className="hover:text-sky-600">
             <i className="fab fa-twitter"></i>
           </a>
         </div>
@@ -68,7 +68,7 @@ const Footer = () => {
               placeholder="Your Email"
               className="w-full p-2 border border-gray-300 rounded-md"
             />
-            <button className="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+            <button className="w-full p-2 bg-sky-500 text-white rounded-md hover:bg-sky-600">
               Subscribe
             </button>
           </form>
@@ -76,8 +76,8 @@ const Footer = () => {
       </div>
 
       {/* Bottom Text */}
-      <div className="text-center text-sm text-gray-500 mt-6">
-        Made With Love By Finland All Right Reserved
+      <div className="flex justify-between items-center max-w-7xl mx-auto px-4 border-b pb-6 text-sm font-bold text-gray-500 mt-6">
+      Made With Love By Nisar Noorani All Right Reserved
       </div>
     </footer>
   );

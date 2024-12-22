@@ -6,7 +6,7 @@ import BestSeller from "@/sections/BestSeller";
 import HomePage from "@/sections/HomePage";
 import FeaturedProducts from "@/sections/FeaturedProducts";
 
-export default function Page1() {
+export default function MainPage() {
     return (
         <div>
             <TopBanner/>

@@ -18,7 +18,7 @@ const WorkWithUs = () => {
             behavior during the first quarter of the 20th.
           </p>
           {/* Button with Fixed Width */}
-          <button className="w-40 px-4 py-3 border border-white text-white rounded-md hover:bg-white hover:text-blue-500 transition duration-300">
+          <button className="w-40 px-4 py-3 border border-white text-white rounded-md hover:bg-white font-bold hover:text-blue-500 transition duration-300">
             Button
           </button>
         </div>

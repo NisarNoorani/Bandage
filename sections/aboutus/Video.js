@@ -12,7 +12,7 @@ const Video = () => {
     <section className="bg-white py-20">
       <div className="container mx-auto px-6 lg:px-20 text-center">
         <div
-          className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg"
+          className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105"
           style={{ aspectRatio: "16 / 9" }}
         >
           {/* Thumbnail or Play Button */}
@@ -25,9 +25,9 @@ const Video = () => {
               <img
                 src="https://images.unsplash.com/photo-1535553786276-ba3c1681ad75?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Fashion Thumbnail"
-                className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                className="absolute inset-0 w-full h-full object-cover rounded-lg transform transition duration-300 hover:scale-110"
               />
-              <div className="absolute z-20 w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center">
+              <div className="absolute z-20 w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center transform transition duration-300 hover:scale-110">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-10 h-10 text-white"
@@ -69,3 +69,4 @@ const Video = () => {
 };
 
 export default Video;
+    

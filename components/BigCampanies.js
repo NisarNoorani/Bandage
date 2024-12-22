@@ -3,11 +3,11 @@ import { FaAmazon, FaStripe, FaReddit, FaLyft, FaBuilding } from 'react-icons/fa
 
 const BigCompanies = () => {
   const companies = [
-    { name: 'Hooli', icon: <FaBuilding className="w-20 h-20 text-gray-600" /> }, // Increased icon size
-    { name: 'Lyft', icon: <FaLyft className="w-20 h-20 text-gray-600" /> },
-    { name: 'Stripe', icon: <FaStripe className="w-20 h-20 text-gray-600" /> },
-    { name: 'Amazon AWS', icon: <FaAmazon className="w-20 h-20 text-gray-600" /> },
-    { name: 'Reddit', icon: <FaReddit className="w-20 h-20 text-gray-600" /> },
+    { name: 'Hooli', icon: <FaBuilding className="w-12 h-12 md:h-20 md:w-20 text-gray-600 hover:text-blue-500 hover:scale-110 transition duration-300" /> },
+    { name: 'Lyft', icon: <FaLyft className="w-12 h-12 md:h-20 md:w-20 text-gray-600 hover:text-pink-500 hover:scale-110 transition duration-300" /> },
+    { name: 'Stripe', icon: <FaStripe className="w-12 h-12 md:h-20 md:w-20 text-gray-600 hover:text-indigo-500 hover:scale-110 transition duration-300" /> },
+    { name: 'Amazon', icon: <FaAmazon className="w-12 h-12 md:h-20 md:w-20 text-gray-600 hover:text-yellow-500 hover:scale-110 transition duration-300" /> },
+    { name: 'Reddit', icon: <FaReddit className="w-12 h-12 md:h-20 md:w-20 text-gray-600 hover:text-orange-500 hover:scale-110 transition duration-300" /> },
   ];
 
   return (
@@ -19,11 +19,11 @@ const BigCompanies = () => {
           and quantum mechanics.
         </p>
       </div>
-      <div className="flex flex-wrap justify-center gap-8 mt-8"> {/* Adjusted gap for better spacing */}
+      <div className="flex flex-wrap justify-center gap-10 md:gap-40 mt-8">
         {companies.map((company, index) => (
           <div key={index} className="text-center">
             {company.icon}
-            <p className="mt-4 text-gray-600 font-medium">{company.name}</p> {/* Increased margin below icons */}
+            <p className="mt-4 text-gray-600 text-sm font-bold">{company.name}</p>
           </div>
         ))}
       </div>
