@@ -1,24 +1,32 @@
-import React from 'react'
+import React from 'react';
 
 const Hero = () => {
     return (
-        <section className="bg-blue-500 text-white py-12 px-6 flex items-center">
-            <div>
-                <p className="text-sm uppercase">Summer 2020</p>
-                <h1 className="text-5xl font-bold my-4">New Collection</h1>
-                <p>We know how large objects will act, but things on a small scale.</p>
-                <button className="mt-6 bg-green-500 text-white py-2 px-6 rounded hover:bg-green-600">
+        <section
+            className="bg-cover bg-center text-white py-12 px-6 flex items-center"
+            style={{
+                backgroundImage: "url('https://res.cloudinary.com/dvbc6ctqu/image/upload/v1734812870/background_aqhfyy_1_mavnff.png')",
+                height: '850px',
+            }}
+        >
+            <div className="w-full md:ml-12 text-center md:text-left">
+                <p className="text-sm uppercase font-bold">Summer 2020</p>
+                <h1 className="text-5xl md:text-7xl font-bold my-5 uppercase">New Collection</h1>
+                <p className="font-bold text-lg tracking-wide">
+                    We know how large objects will act, but things on a small scale.
+                </p>
+                <button
+                    className="mt-6 py-3 px-8 rounded font-bold uppercase text-lg"
+                    style={{
+                        backgroundColor: '#2dc071',
+                        color: 'white',
+                    }}
+                >
                     Shop Now
                 </button>
             </div>
-            <div className="ml-12 hidden md:block">
-                <img
-                    src="https://via.placeholder.com/400x600"
-                    alt="Hero Image"
-                    className="rounded-lg"
-                />
-            </div>
         </section>
-    )
-}
-export default Hero
+    );
+};
+
+export default Hero;

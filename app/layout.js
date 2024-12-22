@@ -1,4 +1,6 @@
+import Footer from '@/components/Footer';
 import './globals.css';
+
 
 export const metadata = {
     title: 'Next 15',
@@ -8,7 +10,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-        <body>{children}</body>
+            <body className="flex flex-col min-h-screen">
+                <main className="flex-grow">
+                    {children}
+                </main>
+                <Footer />
+            </body>
         </html>
     );
 }
