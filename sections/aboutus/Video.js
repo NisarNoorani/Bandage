@@ -4,9 +4,18 @@ import React, { useState } from "react";
 
 const Video = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handlePlay = () => setIsPlaying(true);
+  const handlePlay = () => {
+    setIsPlaying(true);
+    setIsLoading(true); // Show the loading spinner when play is clicked
+  };
+
   const handleStop = () => setIsPlaying(false);
+
+  const handleLoadedData = () => {
+    setIsLoading(false); // Hide the spinner once the video is ready
+  };
 
   return (
     <section className="bg-white py-20">
@@ -27,14 +36,12 @@ const Video = () => {
                 alt="Fashion Thumbnail"
                 className="absolute inset-0 w-full h-full object-cover rounded-lg transform transition duration-300 hover:scale-110"
               />
-              <div className="absolute z-20 w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center transform transition duration-300 hover:scale-110">
+              <div className="absolute z-20 w-16 h-16 bg-sky-500 rounded-full flex items-center justify-center transform transition duration-300 hover:scale-110">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-10 h-10 text-white"
-                  fill="none"
+                  className="w-12 h-12 text-white"
+                  fill="white"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
                 >
                   <path
                     strokeLinecap="round"
@@ -48,19 +55,27 @@ const Video = () => {
 
           {/* Video */}
           {isPlaying && (
-            <video
-              className="absolute inset-0 w-full h-full rounded-lg"
-              autoPlay
-              loop
-              muted
-              onClick={handleStop}
-            >
-              <source
-                src="https://res.cloudinary.com/dvbc6ctqu/video/upload/v1734871188/22931965_pehviz.mp4"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
+            <>
+              {isLoading && (
+                <div className="absolute inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50">
+                  <div className="w-16 h-16 border-4 border-sky-500 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              )}
+              <video
+                className="absolute inset-0 w-full h-full rounded-lg"
+                autoPlay
+                loop
+                muted
+                onClick={handleStop}
+                onLoadedData={handleLoadedData} // Hide spinner when video is ready
+              >
+                <source
+                  src="https://res.cloudinary.com/dvbc6ctqu/video/upload/v1734871188/22931965_pehviz.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </>
           )}
         </div>
       </div>
@@ -69,4 +84,3 @@ const Video = () => {
 };
 
 export default Video;
-    
