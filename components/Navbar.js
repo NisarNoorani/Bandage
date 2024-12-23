@@ -78,6 +78,11 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
+                        <Link href="/pricing" className="hover:bg-sky-200 active:bg-sky-200 focus:bg-sky-200 hover:scale-105 transition-all duration-300 px-10 py-3 rounded w-full text-center">
+                            Pricing
+                        </Link>
+                    </li>
+                    <li>
                         <Link href="/contact" className="hover:bg-sky-200 active:bg-sky-200 focus:bg-sky-200 hover:scale-105 transition-all duration-300 px-10 py-3 rounded w-full text-center">
                             Contact
                         </Link>
