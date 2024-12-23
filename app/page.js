@@ -1,10 +1,10 @@
 import TopBanner from "@/components/TopBanner";
 import Navbar from "@/components/Navbar";
-import Hero from "@/sections/Hero";
-import EditorsPick from "@/sections/EditorsPick";
-import BestSeller from "@/sections/BestSeller";
-import HomePage from "@/sections/HomePage";
-import FeaturedProducts from "@/sections/FeaturedProducts";
+import Hero from "@/sections/mainpage/Hero";
+import EditorsPick from "@/sections/mainpage/EditorsPick";
+import BestSeller from "@/sections/mainpage/BestSeller";
+import HomePage from "@/sections/mainpage/HomePage";
+import FeaturedProducts from "@/sections/mainpage/FeaturedProducts";
 
 export default function MainPage() {
     return (
