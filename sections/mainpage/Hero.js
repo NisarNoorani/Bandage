@@ -1,4 +1,10 @@
 import React from 'react';
+import Link from 'next/link';
+
+function getRandomNumber() {
+    return Math.floor(Math.random() * 80) + 1;
+}
+let randomNumber = getRandomNumber();
 
 const Hero = () => {
     return (
@@ -15,15 +21,17 @@ const Hero = () => {
                 <p className="font-bold text-lg tracking-wide">
                     We know how large objects will act, but things on a small scale.
                 </p>
-                <button
-                    className="mt-6 py-3 px-8 rounded font-bold uppercase text-lg"
-                    style={{
-                        backgroundColor: '#2dc071',
-                        color: 'white',
-                    }}
-                >
-                    Shop Now
-                </button>
+                <Link href={`/products/all?id=${randomNumber}`}>
+                    <button
+                        className="mt-6 py-3 px-8 rounded font-bold uppercase text-lg"
+                        style={{
+                            backgroundColor: '#2dc071',
+                            color: 'white',
+                        }}
+                    >
+                        Shop Now
+                    </button>
+                </Link>
             </div>
         </section>
     );

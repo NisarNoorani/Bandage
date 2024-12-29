@@ -1,6 +1,10 @@
-import React from "react";
+'use client';
+
+import React, { useState } from "react";
 
 const PricingFAQs = () => {
+  const [openIndex, setOpenIndex] = useState(null); // Track the currently open FAQ
+
   const faqs = [
     {
       title: "What is included in the membership?",
@@ -39,7 +43,7 @@ const PricingFAQs = () => {
       {/* Title */}
       <div className="max-w-4xl mx-auto mb-8">
         <h1 className="text-4xl font-bold text-center mb-2">Pricing FAQs</h1>
-        <p className="text-gray-500 font-bold ">
+        <p className="text-gray-500 font-bold">
           Everything you need to know about our membership plans.
         </p>
       </div>
@@ -49,19 +53,26 @@ const PricingFAQs = () => {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="flex items-start gap-4 p-6 border border-gray-200 rounded-lg shadow-sm"
+            className="p-6 border border-gray-200 rounded-lg shadow-sm cursor-pointer"
+            onClick={() => setOpenIndex(openIndex === index ? null : index)} // Toggle FAQ
           >
-            {/* Icon */}
-            <span className="text-sky-500 font-bold text-xl mt-1">&lt;</span>
+            <div className="flex items-start gap-4">
+              {/* Icon */}
+              <span className="text-sky-500 font-bold text-xl mt-1">
+                {openIndex === index ? "-" : "+"}
+              </span>
 
-            {/* FAQ Content */}
-            <div>
-              <h3 className="text-lg font-semibold text-left mb-2">
-                {faq.title}
-              </h3>
-              <p className="text-sm text-gray-700 text-left">
-                {faq.description}
-              </p>
+              {/* FAQ Content */}
+              <div>
+                <h3 className="text-lg font-semibold text-left">
+                  {faq.title}
+                </h3>
+                {openIndex === index && ( // Show description only if open
+                  <p className="text-sm text-gray-700 text-left mt-2">
+                    {faq.description}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         ))}
@@ -72,12 +83,12 @@ const PricingFAQs = () => {
         <p className="text-gray-700 text-2xl text-left">
           Haven’t got your answer?
         </p>
-          <a
-            href="/contact"
-            className="text-sky-500 text-2xl hover:underline font-medium"
-          >
-            Contact our support
-          </a>
+        <a
+          href="/contact"
+          className="text-sky-500 text-2xl hover:underline font-medium"
+        >
+          Contact our support
+        </a>
       </div>
     </div>
   );

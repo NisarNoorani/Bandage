@@ -1,17 +1,22 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import { products } from '@/constants/Constants'; // Replace with your actual products source
+
+// Utility function to get random products from a specific category
+const getRandomProducts = (category, count) => {
+  const filteredProducts = products.filter((product) => product.category === category);
+  return filteredProducts.sort(() => Math.random() - 0.5).slice(0, count);
+};
 
 const BestSeller = () => {
-  // Array of product image URLs
-  const productImages = [
-    "https://images.unsplash.com/photo-1457541377139-24e401c053fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fHNoaXJ0c3xlbnwwfHwwfHx8MA%3D%3D",
-    "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnRzfGVufDB8fDB8fHww",
-    "https://images.unsplash.com/photo-1580047883831-5db03837b0b3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29hdHxlbnwwfHwwfHx8MA%3D%3D",
-    "https://images.unsplash.com/photo-1543274747-e969ff86c466?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNvYXR8ZW58MHx8MHx8fDA%3D",
-    "https://images.unsplash.com/photo-1553632786-0cfb0ce7dacb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvYXR8ZW58MHx8MHx8fDA%3D",
-    "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvYXR8ZW58MHx8MHx8fDA%3D",
-    "https://images.unsplash.com/photo-1722851721443-e3a83a31a5cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHNoYWx3YXIlMjBrYW1lZXp8ZW58MHx8MHx8fDA%3D",
-    "https://plus.unsplash.com/premium_photo-1691030256201-b73e0d0c60e1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0fHxzaGFsd2FyJTIwa2FtZWV6fGVufDB8fDB8fHww",
-  ];
+  const menProducts = getRandomProducts('Men', 2);
+  const womenProducts = getRandomProducts('Women', 2);
+  const kidsProducts = getRandomProducts('Kids', 2);
+  const accessoriesProducts = getRandomProducts('Accessories', 2);
+
+  const selectedProducts = [...menProducts, ...womenProducts, ...kidsProducts, ...accessoriesProducts];
 
   return (
     <section className="max-w-screen-xl mx-auto py-8">
@@ -24,31 +29,35 @@ const BestSeller = () => {
 
       {/* Product Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {productImages.map((image, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-lg rounded border border-gray-300 p-4 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+        {selectedProducts.map((product) => (
+          <Link
+            key={product.id} // Ensure unique key
+            href={`/products/${product.category.toLowerCase()}?id=${product.id}`} // Dynamic URL
           >
-            {/* Product Image */}
-            <img
-              src={image}
-              alt={`Product ${index + 1}`}
-              className="w-full h-auto rounded mb-4"
-            />
-            {/* Product Info */}
-            <h3 className="text-sm font-bold">Graphic Design</h3>
-            <p className="text-xs text-gray-500">English Department</p>
-            <p className="text-sm font-bold mt-2">
-              <span className="line-through text-gray-400">$16.48</span>{' '}
-              <span className="text-green-500">$6.48</span>
-            </p>
-            {/* Color Options */}
-            <div className="flex space-x-2 mt-2">
-              {['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500'].map((color, idx) => (
-                <div key={idx} className={`w-4 h-4 rounded-full ${color}`}></div>
-              ))}
+            <div className="bg-white shadow-lg rounded border border-gray-300 p-4 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+              {/* Product Image */}
+              <div className="w-full h-64 rounded-md overflow-hidden flex items-center justify-center">
+                <img
+                  src={product.images[0]}
+                  alt={product.title || 'Product Image'}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Product Info */}
+              <h3 className="text-sm font-bold mt-4">{product.title || 'Unnamed Product'}</h3>
+              <p className="text-xs text-gray-500">{product.category || 'No Category'}</p>
+              <p className="text-sm font-bold mt-2">
+                <span className="line-through text-gray-400">{product.oldPrice || '$20.00'}</span>{' '}
+                <span className="text-green-500">{product.price || '$10.00'}</span>
+              </p>
+              {/* Color Options */}
+              <div className="flex space-x-2 mt-2">
+                {['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500'].map((color, idx) => (
+                  <div key={idx} className={`w-4 h-4 rounded-full ${color}`}></div>
+                ))}
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

@@ -49,7 +49,7 @@ const Hero = () => {
             <img
               src="https://s3-alpha-sig.figma.com/img/0bec/d76f/b529bdb1f9ac06ee979d8665aade6757?Expires=1735516800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Bj3ZcfvHGnYV960O~SencZSJ6AqMXLfA4Ozb~TawNwV9qyT5YaES-tYfvaHnd2HCjdmMZ9D0mBP7Wz7rmn22qdN8dXw0vSfxxZj57ZZjKGg0AXaVvbUrJbW-WA6gdU3hNCvlba-nP19~YcW3VZdOA~1XjInMW5m2fOLu8mUN-j55hPcUxZNFDzkl-NWKJiI1s-IqVI1MJ3Cx0O9aQcNN2swxVUlPO49uKPTrgDKhhjzlt6xpRPsN3nVxVtmG763zkD~~wMfzU9a9ymbD0p7B6Wg~AvuM2iqBtuwQM3ctMDPYSUrBrQiF9jASyGVWxBjuC5LSKIQ8xiRZHOCB8sY~tw__"
               alt="Contact Us"
-              className="w-full max-w-8xl lg:max-w-8xl h-auto rounded-lg object-cover relative z-10 hover:scale-105 hover:shadow-lg transition duration-300"
+             className="w-full max-w-8xl lg:max-w-8xl h-[500px] rounded-lg object-cover relative z-10 hover:scale-105 transition duration-300"
             />
             <div className="absolute top-[75%] left-[100px] w-3 h-3 rounded-full bg-purple-400 transition duration-300"></div>
             <div className="absolute bottom-[80%] right-[20%] w-3 h-3 rounded-full bg-purple-400 transition duration-300"></div>

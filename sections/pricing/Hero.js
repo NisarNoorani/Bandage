@@ -36,11 +36,11 @@ const Hero = () => {
           {/* Toggle Switch */}
           <div
             onClick={() => setBilling(billing === "monthly" ? "yearly" : "monthly")}
-            className="relative flex items-center w-16 h-8 bg-gradient-to-r from-sky-300 to-sky-500 rounded-full cursor-pointer border-2 border-sky-500 shadow-md"
+            className="relative flex items-center w-12 h-6 md:w-16 md:h-8 bg-gradient-to-r from-sky-300 to-sky-500 rounded-full cursor-pointer border-2 border-sky-500 shadow-md"
           >
             <div
-              className={`absolute w-6 h-6 bg-white rounded-full transition-transform duration-300 shadow ${
-                billing === "yearly" ? "translate-x-8" : "translate-x-0"
+              className={`absolute w-4 h-4 md:w-6 md:h-6 bg-white rounded-full transition-transform duration-300 shadow ${
+                billing === "yearly" ? "translate-x-6 md:translate-x-8" : "translate-x-0"
               }`}
             ></div>
           </div>
@@ -119,7 +119,7 @@ const Hero = () => {
                 selectedPlan === plan.name.toLowerCase()
                   ? "bg-gray-800 text-white"
                   : "bg-white text-gray-800"
-              }shadow-sm p-8 h-auto hover:shadow-lg hover:scale-105 transition-transform duration-300 ${
+              } shadow-sm p-8 h-auto hover:shadow-lg hover:scale-105 transition-transform duration-300 ${
                 index === 1 ? "md:transform md:translate-y-16" : ""
               }`}
               onClick={() => setSelectedPlan(plan.name.toLowerCase())}
@@ -131,10 +131,9 @@ const Hero = () => {
               <div className="mb-10 flex my-8 justify-center items-end relative">
                 <div className="text-5xl font-extrabold text-sky-500">
                   {plan.price}
+                  <span className="text-xl font-bold text-sky-500">$</span>
                 </div>
-                <span className="absolute top-[-10px] right-[150px] text-xl font-bold text-sky-500">
-                  $
-                </span>
+
                 <span className="text-sm uppercase font-semibold text-sky-500 ml-2">
                   per month
                 </span>
@@ -155,9 +154,7 @@ const Hero = () => {
                       &#10003;
                     </div>
                     <span
-                      className={`${
-                        offer.included ? "" : " text-gray-500"
-                      }`}
+                      className={`${offer.included ? "" : " text-gray-500"}`}
                     >
                       {offer.feature}
                     </span>
