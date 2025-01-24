@@ -161,20 +161,20 @@ const ShowProducts = () => {
             <div
                 className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
                 style={{
-                    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${product.images[imageIndex]})`,
+                    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url(${product.images[imageIndex]})`,
                     zIndex: -1,
                     borderRadius: '16px',
-                    border: '8px solid rgba(255, 255, 255, 0.5)',
                     transform: 'scale(1.05)',
-                    clipPath: 'inset(0 0 2% 0)',
+                    opacity: 1,
                 }}
             ></div>
 
 
+
             {/* Main Content */}
-            <div className="relative flex flex-col items-center justify-center min-h-screen gap-6">
+            <div className="relative flex flex-col items-center justify-start min-h-screen gap-6 pt-0"> {/* Removed unnecessary padding */}
                 {/* Navigation Buttons for Products */}
-                <div className="absolute top-1/2 left-0 transform -translate-y-1/2 px-4">
+                <div className="absolute top-1/4 left-0 transform -translate-y-1/2 px-4"> {/* Adjusted position */}
                     <button
                         className="text-white text-4xl hover:opacity-70 transition"
                         onClick={handlePrevProduct}
@@ -182,7 +182,7 @@ const ShowProducts = () => {
                         &#9664; {/* Left Button */}
                     </button>
                 </div>
-                <div className="absolute top-1/2 right-0 transform -translate-y-1/2 px-4">
+                <div className="absolute top-1/4 right-0 transform -translate-y-1/2 px-4"> {/* Adjusted position */}
                     <button
                         className="text-white text-4xl hover:opacity-70 transition"
                         onClick={handleNextProduct}
@@ -192,8 +192,8 @@ const ShowProducts = () => {
                 </div>
 
                 {/* Main Product Box */}
-                <div className="flex flex-col lg:flex-row bg-white rounded-lg shadow-lg border border-gray-300 max-w-7xl w-full p-6">
-                    {/* Left Section */}
+                <div className="flex flex-col lg:flex-row bg-white rounded-lg shadow-lg border border-gray-300 max-w-7xl w-full px-6 py-3 mt-0"> {/* Set margin-top to 0 */}
+                    {/* Adjusted padding for reduced gap */}
                     <div className="flex flex-col lg:flex-row lg:w-2/3 lg:pr-6 mb-6 lg:mb-0">
                         {/* Constant Profile Image */}
                         <div className="w-full lg:w-2/5 flex justify-center items-center p-4">
@@ -203,7 +203,6 @@ const ShowProducts = () => {
                                 className="w-full h-[450px] object-cover rounded-lg shadow-md border-2 border-gray-300"
                             />
                         </div>
-
                         {/* Product Info */}
                         <div className="flex-1 flex flex-col justify-center p-6">
                             <h1 className="text-4xl font-bold text-gray-800 mb-2">
@@ -235,7 +234,7 @@ const ShowProducts = () => {
                                     </span>
                                 </div>
                             </div>
-                            <p className="text-gray-800  text-lg font-bold ">
+                            <p className="text-gray-800 text-lg font-bold">
                                 Description:<span className="text-gray-500 mt-0 text-lg font-medium"> {product.description}</span>
                             </p>
                             <hr className="my-6 border-t border-gray-300" />
@@ -293,8 +292,8 @@ const ShowProducts = () => {
                     </div>
 
                     {/* Right Section with Image Navigation */}
-                    <div className="relative w-full lg:w-1/3 h-[450px] bg-gray-900 rounded-lg overflow-hidden">
-                        <div className="w-full h-full flex justify-center items-center bg-black bg-opacity-40">
+                    <div className="relative w-full lg:w-1/3 h-[450px] mt-4 rounded-lg overflow-hidden">
+                        <div className="w-full h-full flex justify-center items-center bg-opacity-40">
                             <img
                                 src={product.images[imageIndex]} // Changing background image
                                 alt="Product Preview"

@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 31, "column": 0}, "map": {"version":3,"sources":["file://F%3A/Programming/NextJs/hackathon/app/products/%5BcategoryName%5D/page.js"],"sourcesContent":["import ShopPage from '@/sections/shop/ShopPage'\r\nimport ShowProducts from '@/sections/shop/ShowProduct'\r\nimport React from 'react'\r\n\r\nconst ProductPage = () => {\r\n  return (\r\n    <div>\r\n      <ShowProducts />\r\n      <ShopPage />\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default ProductPage\r\n"],"names":[],"mappings":";;;;AAAA;AACA;AACA;;;;;AAEA,MAAM,cAAc;IAClB,qBACE,8OAAC;;0BACC,8OAAC,+HAAA,CAAA,UAAY;;;;;0BACb,8OAAC,4HAAA,CAAA,UAAQ;;;;;;;;;;;AAGf;uCAEe"}},
+    {"offset": {"line": 63, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 74, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":""}},
+    {"offset": {"line": 74, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

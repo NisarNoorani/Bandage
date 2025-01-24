@@ -3,6 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { products } from '@/constants/Constants'; // Replace with your actual products source
+import Popover from '@/components/Popover';
+import ShowProducts from '@/sections/shop/ShowProduct';
 
 // Utility function to get random products from a specific category
 const getRandomProducts = (category, count) => {
@@ -15,7 +17,6 @@ const BestSeller = () => {
   const womenProducts = getRandomProducts('Women', 2);
   const kidsProducts = getRandomProducts('Kids', 2);
   const accessoriesProducts = getRandomProducts('Accessories', 2);
-
   const selectedProducts = [...menProducts, ...womenProducts, ...kidsProducts, ...accessoriesProducts];
 
   return (

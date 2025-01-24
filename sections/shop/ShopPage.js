@@ -1,75 +1,69 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { products } from '@/constants/Constants'; // Import your products data
+import Popover from '@/components/Popover';
+import ShowProducts from '@/sections/shop/ShowProduct';
 
 const categories = ['All', 'Men', 'Women', 'Kids', 'Accessories'];
-const generateRandomId = (category) => {
-  const ranges = {
-    all: [1, 80],
-    men: [1, 20],
-    women: [21, 40],
-    kids: [41, 60],
-    accessories: [61, 80],
-  };
-  const [min, max] = ranges[category];
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-// Helper functions
-const getPaginatedProducts = (category, page, productsPerPage) => {
-  const filteredProducts =
-    category === 'All'
-      ? products
-      : products.filter((product) => product.category.toLowerCase() === category.toLowerCase());
-  const startIndex = (page - 1) * productsPerPage;
-  return filteredProducts.slice(startIndex, startIndex + productsPerPage);
-};
 
 const ShopPage = () => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const productsPerPage = 12;
 
   useEffect(() => {
-    // Get the current category from the URL pathname
-    const path = window.location.pathname.split('/').pop();
-    const initialCategory = categories.find(
-      (cat) => cat.toLowerCase() === path.toLowerCase()
-    );
-
+    // Determine category from pathname
+    const path = pathname.split('/').pop();
+    const initialCategory = categories.find((cat) => cat.toLowerCase() === path.toLowerCase());
     if (initialCategory) {
       setSelectedCategory(initialCategory);
     }
-  }, []);
+
+    // Check for `id` in search params to open popover
+    const productId = searchParams.get('id');
+    if (productId) {
+      const product = products.find((prod) => prod.id === parseInt(productId));
+      if (product) {
+        setSelectedProduct(product);
+        setIsPopoverOpen(true);
+      }
+    }
+  }, [pathname, searchParams]);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     setCurrentPage(1);
 
-    // Generate random ID for the category
-    const randomId = generateRandomId(category.toLowerCase());
-
-    // Update URL without reloading the page
-    const newUrl = `/products/${category.toLowerCase()}?id=${randomId}`;
+    const newUrl = `/products/${category.toLowerCase()}`;
     window.history.pushState(null, '', newUrl);
 
-    // Smooth scroll to the top of the page
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleProductClick = (productId, productCategory) => {
-    // Generate random ID for the category
-    const randomId = generateRandomId(productCategory.toLowerCase());
+    const newUrl = `/products/${productCategory.toLowerCase()}?id=${productId}`;
+    window.history.pushState(null, '', newUrl);
 
-    // Handle the click event and update the URL with product id and category
-    const newUrl = `/products/${productCategory.toLowerCase()}?id=${randomId}`;
-    window.history.pushState(null, '', newUrl); // Update the URL
-    console.log(`Product ID: ${productId}, Category: ${productCategory}`);
+    const product = products.find((prod) => prod.id === productId && prod.category === productCategory);
+    if (product) {
+      setSelectedProduct(product);
+      setIsPopoverOpen(true);
+    }
+  };
 
-    // Smooth scroll to the top
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Automatically scroll to top when product is clicked
+  const closePopover = () => {
+    setIsPopoverOpen(false);
+    setSelectedProduct(null);
+
+    const newUrl = `/products/${selectedCategory.toLowerCase()}`;
+    window.history.pushState(null, '', newUrl);
   };
 
   const filteredProducts =
@@ -110,15 +104,14 @@ const ShopPage = () => {
       </div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {paginatedProducts.map((product) => (
           <div
             key={product.id}
             className="bg-white shadow-lg rounded border border-gray-300 p-4 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-            onClick={() => handleProductClick(product.id, product.category)} // Add click event here
+            onClick={() => handleProductClick(product.id, product.category)} // Pass ID and category
           >
-            {/* Display only the first image */}
-            <div className="w-full h-64 rounded-md overflow-hidden flex items-center justify-center">
+            <div className="w-full h-96 rounded-md overflow-hidden flex items-center justify-center">
               <img
                 src={product.images[0]} // Show only the first image
                 alt={product.title}
@@ -175,6 +168,13 @@ const ShopPage = () => {
           Next
         </button>
       </div>
+
+      {/* Popover */}
+      {isPopoverOpen && selectedProduct && (
+        <Popover isOpen={isPopoverOpen} onClose={closePopover}>
+          <ShowProducts product={selectedProduct} />
+        </Popover>
+      )}
     </section>
   );
 };

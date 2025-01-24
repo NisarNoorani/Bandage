@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://F%3A/Programming/NextJs/hackathon/app/layout.js"],"sourcesContent":["import Footer from '@/components/Footer';\nimport './globals.css';\n\n\nexport const metadata = {\n    title: 'Next 15',\n    description: 'A Next.js 15 Project',\n};\n\nexport default function RootLayout({ children }) {\n    return (\n        <html lang=\"en\">\n            <body className=\"flex flex-col min-h-screen\">\n                <main className=\"flex-grow\">\n                    {children}\n                </main>\n                <Footer />\n            </body>\n        </html>\n    );\n}\n"],"names":[],"mappings":";;;;;AAAA;;;;AAIO,MAAM,WAAW;IACpB,OAAO;IACP,aAAa;AACjB;AAEe,SAAS,WAAW,EAAE,QAAQ,EAAE;IAC3C,qBACI,8OAAC;QAAK,MAAK;kBACP,cAAA,8OAAC;YAAK,WAAU;;8BACZ,8OAAC;oBAAK,WAAU;8BACX;;;;;;8BAEL,8OAAC,oHAAA,CAAA,UAAM;;;;;;;;;;;;;;;;AAIvB"}},
+    {"offset": {"line": 51, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 62, "column": 0}, "map": {"version":3,"sources":["file://F%3A/Programming/NextJs/hackathon/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = require('../../module.compiled').vendored[\n  'react-rsc'\n].ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":";AAAAA,OAAOC,OAAO,GAAGC,QAAQ,0HAAyBC,QAAQ,CACxD,YACD,CAACC,kBAAkB","ignoreList":[0]}},
+    {"offset": {"line": 64, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
